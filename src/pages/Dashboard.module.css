@@ -1,0 +1,36 @@
+.app {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+  background: #f7f7f8;
+}
+.sidebar {
+  background: #fff;
+  border-right: 1px solid #e6e6ea;
+  padding: 16px;
+}
+.sidebar h3 { margin: 0 0 12px; font-size: 16px; }
+.nav { display: grid; gap: 8px; }
+.nav a { text-decoration: none; color: #333; padding: 8px 10px; border-radius: 8px; }
+.nav a.active, .nav a:hover { background: #f1f2f4; }
+
+.content { padding: 24px; }
+.header { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.card { background: #fff; border: 1px solid #e6e6ea; border-radius: 12px; padding: 16px; }
+.card h4 { margin: 0 0 8px; font-size: 14px; color: #666; }
+.card .value { font-size: 22px; font-weight: 700; }
+.card .delta { font-size: 12px; color: #27ae60; }
+
+.toolbar { display: flex; gap: 8px; margin: 16px 0; }
+.toolbar input { flex: 1; padding: 10px 12px; border-radius: 10px; border: 1px solid #ddd; }
+.toolbar button { padding: 10px 12px; border: 1px solid #ddd; background: #fff; border-radius: 10px; }
+
+.tableWrap { background: #fff; border: 1px solid #e6e6ea; border-radius: 12px; overflow: hidden; }
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { padding: 12px 14px; border-bottom: 1px solid #eee; text-align: left; }
+.status { padding: 4px 8px; border-radius: 999px; font-size: 12px; }
+.status.active { background: #e9f7ef; color: #1e874b; }
+.status.blocked { background: #fdecea; color: #c0392b; }
+.status.inactive { background: #f1f2f6; color: #6b7280; }
+
+.footer { display: flex; justify-content: space-between; padding: 12px; font-size: 12px; color: #666; }

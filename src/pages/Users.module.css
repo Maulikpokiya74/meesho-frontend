@@ -1,0 +1,115 @@
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.button {
+  background: #0f766e;
+  color: #fff;
+  border: 1px solid #0f766e;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button.secondary {
+  background: #ffffff;
+  color: #0f766e;
+  border: 1px solid #0f766e;
+}
+
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px;
+  background: #ffffff;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.input {
+  flex: 1;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.pill {
+  font-size: 12px;
+  background: #f1f5f9;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.entriesTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.th, .td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.tdRight { text-align: right; }
+.income { color: #065f46; }
+.expense { color: #7f1d1d; }
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  min-width: 340px;
+}
+
+.modalActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  justify-content: flex-end;
+}
