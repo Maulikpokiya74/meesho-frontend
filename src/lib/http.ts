@@ -3,7 +3,10 @@ import { toast } from './toast';
 
 // Centralized Axios instance that automatically attaches the auth token
 const http = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 http.interceptors.request.use((config) => {
