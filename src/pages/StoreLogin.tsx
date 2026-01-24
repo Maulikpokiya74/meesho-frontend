@@ -14,6 +14,7 @@ export default function StoreLogin() {
   const res = await http.post('/auth/login', { name, password });
     setToken(res.data.token);
     localStorage.setItem('token', res.data.token);
+    localStorage.setItem('storeId', res.data.storeId);
     setMessage('Logged in successfully');
     navigate('/dashboard');
   };
