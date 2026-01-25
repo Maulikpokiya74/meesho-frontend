@@ -25,6 +25,21 @@
 }
 .nav a.active, .nav a:hover { background: #f3f4f6; }
 
+.logout {
+  background: none;
+  border: none;
+  color: #1f2937;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  font-size: inherit;
+  font-family: inherit;
+  transition: all .15s ease-in-out;
+}
+.logout:hover { background: #f3f4f6; }
+
 .content { padding: 28px; }
 .header { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
 .card {

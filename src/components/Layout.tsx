@@ -27,7 +27,7 @@ export default function Layout() {
           </Link>
         </div>
         <div style={{ marginTop: 16 }}>
-          <button className={styles.button} onClick={logout}>Logout</button>
+          <button className={styles.logout} onClick={logout}>Logout</button>
         </div>
       </aside>
       <main className={styles.content}>
