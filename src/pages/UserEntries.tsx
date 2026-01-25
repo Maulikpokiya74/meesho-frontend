@@ -38,6 +38,9 @@ export default function UserEntries() {
     const res = await http.get("/users", { params: { storeId } });
     const found = (res.data || []).find((x: any) => x._id === userId);
     if (!found) setError("User not found");
+    if (found) {
+      found.entries = found.entries.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    }
     setUser(found || null);
   };
 
@@ -158,7 +161,13 @@ export default function UserEntries() {
                   placeholder="Description"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
+                  list="description-options"
                 />
+                <datalist id="description-options">
+                  <option value="Product" />
+                  <option value="Box" />
+                  <option value="Review" />
+                </datalist>
               </div>
               <button className={styles.button} onClick={addEntry}>
                 Create

@@ -4,6 +4,10 @@ import styles from "./Layout.module.css";
 export default function Layout() {
   const { pathname } = useLocation();
   const isActive = (path: string) => (pathname === path ? "active" : "");
+  const logout = () => {
+    localStorage.clear();
+    window.location.href = "/";
+  };
   return (
     <div className={styles.app}>
       <aside className={styles.sidebar}>
@@ -21,6 +25,9 @@ export default function Layout() {
           <Link className={isActive("/products")} to="/products">
             Product
           </Link>
+        </div>
+        <div style={{ marginTop: 16 }}>
+          <button className={styles.button} onClick={logout}>Logout</button>
         </div>
       </aside>
       <main className={styles.content}>
