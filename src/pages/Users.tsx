@@ -90,11 +90,13 @@ export default function Users() {
           <ul className={styles.list}>
             {users.map(u => (
               <li key={u._id} className={styles.listItem}>
-                <span>{u.name}</span>
-                <div className={styles.row}>
-                  <span className={styles.pill}>ID: {u._id.slice(-6)}</span>
-                  <button className={styles.button} onClick={() => openUser(u)}>Add Entry</button>
-                  <a className={`${styles.button} ${styles.secondary}`} href={`/users/entries?id=${u._id}&mode=view`}>View Entries</a>
+                <div className={styles.cardContent}>
+                  <h4 className={styles.userName}>{u.name}</h4>
+                  <p className={styles.userId}>ID: {u._id.slice(-6)}</p>
+                  <div className={styles.actions}>
+                    <button className={styles.button} onClick={() => openUser(u)}>Add Entry</button>
+                    <a className={`${styles.button} ${styles.secondary}`} href={`/users/entries?id=${u._id}&mode=view`}>View Entries</a>
+                  </div>
                 </div>
               </li>
             ))}

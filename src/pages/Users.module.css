@@ -1,115 +1,201 @@
 .container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 16px;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 16px;
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
 }
 
 .title {
-  font-size: 22px;
-  font-weight: 700;
-  color: #111827;
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
 }
 
 .button {
-  background: #0f766e;
-  color: #fff;
-  border: 1px solid #0f766e;
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
+    background: #0f766e;
+    color: #fff;
+    border: 1px solid #0f766e;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
 }
 
 .button.secondary {
-  background: #ffffff;
-  color: #0f766e;
-  border: 1px solid #0f766e;
+    background: #ffffff;
+    color: #0f766e;
+    border: 1px solid #0f766e;
 }
 
 .card {
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 12px;
-  background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 12px;
+    background: #ffffff;
 }
 
 .row {
-  display: flex;
-  gap: 8px;
-  align-items: center;
+    display: flex;
+    gap: 8px;
+    align-items: center;
 }
 
 .input {
-  flex: 1;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 8px 10px;
+    flex: 1;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 8px 10px;
 }
 
 .list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
 }
 
 .listItem {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px solid #f3f4f6;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease;
+}
+
+.listItem:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.userName {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.userId {
+    margin: 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
 }
 
 .pill {
-  font-size: 12px;
-  background: #f1f5f9;
-  border: 1px solid #e5e7eb;
-  color: #374151;
-  padding: 4px 8px;
-  border-radius: 999px;
+    font-size: 12px;
+    background: #f1f5f9;
+    border: 1px solid #e5e7eb;
+    color: #374151;
+    padding: 4px 8px;
+    border-radius: 999px;
 }
 
 .entriesTable {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.th, .td {
-  padding: 8px 10px;
-  border-bottom: 1px solid #e5e7eb;
-  text-align: left;
+.th,
+.td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
 }
 
-.tdRight { text-align: right; }
-.income { color: #065f46; }
-.expense { color: #7f1d1d; }
+.tdRight {
+    text-align: right;
+}
+
+.income {
+    color: #065f46;
+}
+
+.expense {
+    color: #7f1d1d;
+}
 
 .modalBackdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
 }
 
 .modal {
-  background: #fff;
-  padding: 16px;
-  border-radius: 10px;
-  min-width: 340px;
+    background: #fff;
+    padding: 16px;
+    border-radius: 10px;
+    min-width: 340px;
 }
 
 .modalActions {
-  display: flex;
-  gap: 8px;
-  margin-top: 12px;
-  justify-content: flex-end;
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 8px;
+        max-width: 100%;
+    }
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .title {
+        font-size: 18px;
+    }
+    .row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .input {
+        width: 100%;
+    }
+    .listItem {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    .list {
+        grid-template-columns: 1fr;
+    }
+    .actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .entriesTable {
+        overflow-x: auto;
+        display: block;
+        white-space: nowrap;
+        max-width: 100%;
+    }
+    .modal {
+        min-width: 90vw;
+    }
 }
