@@ -68,6 +68,9 @@ export default function UserEntries() {
       params: { storeId: localStorage.getItem("storeId") },
     });
     const fresh = (res.data || []).find((x: any) => x._id === user._id) || user;
+    if (fresh && fresh.entries) {
+      fresh.entries.sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    }
     setUser(fresh);
     setAmount(0);
     setType("income");
@@ -279,21 +282,17 @@ export default function UserEntries() {
                     <tbody>
                       {pageEntries.map((en: any, idx: number) => (
                         <tr key={idx}>
-                          <td className={styles.td}>
-                            {new Date(en.date).toLocaleString()}
-                          </td>
-                          <td className={styles.td}>{en.type}</td>
-                          <td
-                            className={`${styles.td} ${styles.tdRight} ${
-                              en.type === "income"
-                                ? styles.income
-                                : styles.expense
-                            }`}
-                          >
-                            {en.type === "income" ? "+" : "-"}
-                            {en.amount}
-                          </td>
-                          <td className={styles.td}>{en.description}</td>
+                              <td className={styles.td} data-label="Date"><span className={styles.value}>{new Date(en.date).toLocaleString()}</span></td>
+                              <td className={styles.td} data-label="Type"><span className={styles.value}>{en.type}</span></td>
+                              <td
+                                className={`${styles.td} ${styles.tdRight} ${
+                                  en.type === "income"
+                                    ? styles.income
+                                    : styles.expense
+                                }`}
+                                data-label="Amount"
+                              ><span className={styles.value}>{en.type === "income" ? "+" : "-"}{en.amount}</span></td>
+                              <td className={styles.td} data-label="Description"><span className={styles.value}>{en.description}</span></td>
                         </tr>
                       ))}
                     </tbody>
@@ -308,7 +307,7 @@ export default function UserEntries() {
                               Page {currentPage} of {totalPages} •{" "}
                               {filtered.length} entries
                             </span>
-                            <div className={styles.row}>
+                            <div className={styles.paginationRow}>
                               <button
                                 className={`${styles.button} ${styles.secondary}`}
                                 onClick={onPrev}
@@ -346,7 +345,7 @@ export default function UserEntries() {
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, 1fr)',
                 gap: 12,
-              }}>
+              }} className={styles.totalsGrid}>
                 <div style={{ border: '1px solid #e5e7eb', borderRadius: 10, padding: '10px 12px', background: '#f8fafc' }}>
                   <div style={{ color: '#6b7280', fontSize: 12, marginBottom: 4 }}>Total Income</div>
                   <div style={{ fontWeight: 700, color: '#065f46' }}>{`$${income.toLocaleString()}`}</div>

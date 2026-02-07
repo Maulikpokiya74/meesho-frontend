@@ -63,6 +63,9 @@ export default function Users() {
     // Reload entries for the selected user
     const res = await http.get(`/users`, { params: { storeId: localStorage.getItem('storeId') } });
     const fresh = (res.data || []).find((x: any) => x._id === selected._id) || selected;
+    if (fresh && fresh.entries) {
+      fresh.entries.sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    }
     setSelected(fresh);
     setAmount(0);
     setType('income');
@@ -138,12 +141,10 @@ export default function Users() {
                 <tbody>
                   {selected.entries.map((en: any, idx: number) => (
                     <tr key={idx}>
-                      <td className={styles.td}>{new Date(en.date).toLocaleString()}</td>
-                      <td className={styles.td}>{en.type}</td>
-                      <td className={`${styles.td} ${styles.tdRight} ${en.type === 'income' ? styles.income : styles.expense}`}>
-                        {en.type === 'income' ? '+' : '-'}{en.amount}
-                      </td>
-                      <td className={styles.td}>{en.description}</td>
+                      <td className={styles.td} data-label="Date"><span className={styles.value}>{new Date(en.date).toLocaleString()}</span></td>
+                      <td className={styles.td} data-label="Type"><span className={styles.value}>{en.type}</span></td>
+                      <td className={`${styles.td} ${styles.tdRight} ${en.type === 'income' ? styles.income : styles.expense}`} data-label="Amount"><span className={styles.value}>{en.type === 'income' ? '+' : '-'}{en.amount}</span></td>
+                      <td className={styles.td} data-label="Description"><span className={styles.value}>{en.description}</span></td>
                     </tr>
                   ))}
                 </tbody>
