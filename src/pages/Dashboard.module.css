@@ -168,26 +168,26 @@
     .table tbody tr {
         display: block;
         border: 1px solid #e6e6ea;
-        border-radius: 12px;
-        padding: 16px;
-        margin-bottom: 12px;
+        border-radius: 8px;
+        padding: 6px;
+        margin-bottom: 6px;
         background: #fff;
-        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03);
+        box-shadow: 0 1px 1px rgba(16, 24, 40, 0.02);
     }
     .table tbody td {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 12px;
-        margin-bottom: 8px;
+        padding: 6px;
+        margin-bottom: 4px;
         border-bottom: none;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        background: #f9fafb;
-        border-radius: 8px;
-        border: 1px solid #f0f0f0;
-        gap: 8px;
+        background: #fbfcfd;
+        border-radius: 6px;
+        border: 1px solid #f3f4f6;
+        gap: 6px;
     }
     .table tbody td:last-child {
         margin-bottom: 0;
@@ -196,12 +196,29 @@
         content: attr(data-label);
         font-weight: 600;
         color: #374151;
-        margin-right: 8px;
-        flex: 0 0 40%;
+        margin-right: 6px;
+        flex: 0 0 36%;
+        font-size: 12px;
+        opacity: 0.95;
     }
     .table tbody td span,
     .table tbody td>* {
         flex: 1 1 auto;
         text-align: right;
+        font-size: 12px;
+    }
+    /* Reduce label/value sizes for denser layout */
+    .table tbody td[data-label] {
+        font-size: 12px;
+    }
+    /* Compact summary cards */
+    .summaryGrid>div {
+        padding: 8px 10px !important;
+    }
+    .summaryGrid>div div {
+        font-size: 12px !important;
+    }
+    .summaryGrid>div div:last-child {
+        font-size: 16px !important;
     }
 }
